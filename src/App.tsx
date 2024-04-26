@@ -8,14 +8,15 @@ function App() {
 
     return (
         <div className="App">
-            <Rating value={3}/>
+            <Rating value={4}/>
             <Accordion title="Menu" collapsed={false}/>
-            <Accordion title="|Users" collapsed={true}/>
+            <Accordion title="Users" collapsed={true}/>
         </div>
     );
 }
 
 export default App;
+
 
 
 
