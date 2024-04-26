@@ -1,0 +1,26 @@
+.box {
+    display: flex;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    border: 2px solid #000;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.button > span {
+    display: inline-block;
+}
+
+.bulb {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    margin-left: 15px;
+}
