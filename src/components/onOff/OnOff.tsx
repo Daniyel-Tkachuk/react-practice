@@ -7,27 +7,21 @@ type Props = {
 
 export const OnOff: FC<Props> = ({included}) => {
 
-   const onStyles = {
-      background: included ? "green" : '',
-   }
-
-   const offStyles = {
-      background: included ? "" : "red",
-   }
-
-   const bulbStyles = {
-      background: included ? "green" : "red",
+   const styles = {
+      on: {background: included ? "green" : ''},
+      off: {background: included ? "" : "red"},
+      bulb: {background: included ? "green" : "red"}
    }
 
    return (
       <div className={s.box}>
-         <div style={onStyles} className={s.button}>
+         <div style={styles.on} className={s.button}>
             <span>on</span>
          </div>
-         <div style={offStyles} className={s.button}>
+         <div style={styles.off} className={s.button}>
             <span>off</span>
          </div>
-         <div style={bulbStyles} className={s.bulb}></div>
+         <div style={styles.bulb} className={s.bulb}></div>
       </div>
    );
 };
