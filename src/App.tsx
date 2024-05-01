@@ -3,21 +3,21 @@ import './App.css';
 import {Rating} from "./components/rating/Rating";
 import {Accordion} from "./components/accordion/Accordion";
 import {OnOff} from "./components/onOff/OnOff";
+import {UnControlledAccordion} from "./components/accordion/UnControlledAccordion";
 
-// Создать компоненту OnOf (два квадрата: on - off + сбоку кружочек). Если true то ON подсвечивается зеленым + кружок.
-// Если приходит false тогда OFF горит красным цветом + кружок.
 
 function App() {
 
-
-    return (
-        <div className="App">
-            <Rating value={4}/>
-            <Accordion title="Menu" collapsed={false}/>
-            <Accordion title="Users" collapsed={true}/>
-            <OnOff included={false}/>
-        </div>
-    );
+   return (
+      <div className="App">
+         <Rating value={4}/>
+         <hr/>
+         <Accordion title="Controlled" collapsed={false}/>
+         <UnControlledAccordion title="Uncontrolled"/>
+         <hr/>
+         <OnOff/>
+      </div>
+   );
 }
 
 export default App;
