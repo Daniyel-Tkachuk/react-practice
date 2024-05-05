@@ -11,7 +11,7 @@ import {OnOff} from "./components/onOff/OnOff";
 function App() {
    const [value, setValue] = React.useState<RatingValueType>(2);
    const [collapsed, setCollapsed] = React.useState<boolean>(true);
-   const [includeValue, setIncludeValue] = React.useState<boolean>(false);
+   const [includedValue, setIncludedValue] = React.useState<boolean>(false);
 
 
    return (
@@ -27,9 +27,9 @@ function App() {
          <UnControlledAccordion title="Uncontrolled"/>
          <hr/>
          Controlled
-         <OnOff includeValue={includeValue} setIncludeValue={setIncludeValue}/>
+         <OnOff includeValue={includedValue} setIncludeValue={setIncludedValue}/>
          Uncontrolled
-         <UncontrolledOnOff/>
+         <UncontrolledOnOff />
       </div>
    );
 }
