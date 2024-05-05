@@ -22,7 +22,7 @@ function App() {
          <UncontrolledRating/>
          <hr/>
          Controlled
-         <Accordion title="Controlled" collapsed={collapsed} setCollapsed={setCollapsed}/>
+         <Accordion title="Controlled" collapsed={collapsed} setCollapsed={() => setCollapsed(!collapsed)}/>
          Uncontrolled
          <UnControlledAccordion title="Uncontrolled"/>
          <hr/>

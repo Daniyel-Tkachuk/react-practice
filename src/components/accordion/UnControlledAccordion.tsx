@@ -11,9 +11,13 @@ export const UnControlledAccordion: FC<Props> = (props) => {
 
     const [collapsed, setCollapsed] = React.useState<boolean>(false);
 
+    const setCollapsedHandler = () => {
+        setCollapsed(!collapsed)
+    }
+
     return (
         <div>
-            <AccordionTitle title={title} collapsed={collapsed} setCollapsed={setCollapsed}/>
+            <AccordionTitle title={title} setCollapsed={setCollapsedHandler}/>
             {!collapsed && <AccordionBody/>}
         </div>
     );
