@@ -2,14 +2,16 @@ import React from 'react';
 import './App.css';
 import {Rating} from "./components/rating/Rating";
 import {Accordion} from "./components/accordion/Accordion";
-import {OnOff} from "./components/onOff/OnOff";
+import {UncontrolledOnOff} from "./components/onOff/UncontrolledOnOff";
 import {UnControlledAccordion} from "./components/accordion/UnControlledAccordion";
 import {RatingValueType, UncontrolledRating} from "./components/rating/UnControlledRating";
+import {OnOff} from "./components/onOff/OnOff";
 
 
 function App() {
    const [value, setValue] = React.useState<RatingValueType>(2);
    const [collapsed, setCollapsed] = React.useState<boolean>(true);
+   const [includeValue, setIncludeValue] = React.useState<boolean>(false);
 
 
    return (
@@ -24,8 +26,10 @@ function App() {
          Uncontrolled
          <UnControlledAccordion title="Uncontrolled"/>
          <hr/>
+         Controlled
+         <OnOff includeValue={includeValue} setIncludeValue={setIncludeValue}/>
          Uncontrolled
-         <OnOff/>
+         <UncontrolledOnOff/>
       </div>
    );
 }

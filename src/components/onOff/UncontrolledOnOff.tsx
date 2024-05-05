@@ -2,13 +2,12 @@ import React, {FC} from 'react';
 import s from './OnOff.module.css';
 
 type Props = {
-   includeValue: boolean
-   setIncludeValue: (value: boolean) => void
+   // included?: boolean
 }
 
-export const OnOff: FC<Props> = (props) => {
+export const UncontrolledOnOff: FC<Props> = ({...restProps}) => {
 
-   const {includeValue, setIncludeValue} = props;
+   const [includeValue, setIncludeValue] = React.useState<boolean>(false);
 
    const styles = {
       on: {background: includeValue ? "green" : "white"},
