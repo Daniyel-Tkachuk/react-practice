@@ -4,19 +4,27 @@ import {Rating} from "./components/rating/Rating";
 import {Accordion} from "./components/accordion/Accordion";
 import {OnOff} from "./components/onOff/OnOff";
 import {UnControlledAccordion} from "./components/accordion/UnControlledAccordion";
-import {UncontrolledRating} from "./components/rating/UnControlledRating";
+import {RatingValueType, UncontrolledRating} from "./components/rating/UnControlledRating";
 
 
 function App() {
+   const [value, setValue] = React.useState<RatingValueType>(2);
+   const [collapsed, setCollapsed] = React.useState<boolean>(true);
+
 
    return (
       <div className="App">
-         <Rating value={4}/>
+         Controlled
+         <Rating value={value} setValue={setValue}/>
+         Uncontrolled
          <UncontrolledRating/>
          <hr/>
-         <Accordion title="Controlled" collapsed={false}/>
+         Controlled
+         <Accordion title="Controlled" collapsed={collapsed} setCollapsed={setCollapsed}/>
+         Uncontrolled
          <UnControlledAccordion title="Uncontrolled"/>
          <hr/>
+         Uncontrolled
          <OnOff/>
       </div>
    );

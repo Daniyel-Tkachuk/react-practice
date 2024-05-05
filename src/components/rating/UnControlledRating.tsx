@@ -2,14 +2,14 @@ import React, {FC, useState} from 'react';
 import {Star} from "./Star";
 
 type Props = {
-   // value: 1 | 2 | 3 | 4 | 5
+
 }
 
-export type TypeNumbers = 1 | 2 | 3 | 4 | 5;
+export type RatingValueType = 1 | 2 | 3 | 4 | 5;
 
 export const UncontrolledRating: FC<Props> = (props) => {
 
-   const [value, setValue] = useState<TypeNumbers>(2);
+   const [value, setValue] = useState<RatingValueType>(2);
 
    return (
       <div>

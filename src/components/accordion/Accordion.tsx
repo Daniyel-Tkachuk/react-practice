@@ -7,13 +7,14 @@ import {AccordionBody} from "./AccordionBody";
 type Props = {
     title: string
     collapsed: boolean
+    setCollapsed: (collapsedValue: boolean) => void
 }
 export const Accordion: FC<Props> = (props) => {
-    const {title, collapsed} = props;
+    const {title, collapsed, setCollapsed} = props;
 
     return (
         <div>
-            <AccordionTitle title={title}/>
+            <AccordionTitle title={title} collapsed={collapsed} setCollapsed={setCollapsed}/>
             {!collapsed && <AccordionBody/>}
         </div>
     );

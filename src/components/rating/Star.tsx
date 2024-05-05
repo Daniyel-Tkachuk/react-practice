@@ -1,10 +1,10 @@
 import React, {FC} from 'react';
-import {TypeNumbers} from "./UnControlledRating";
+import {RatingValueType} from "./UnControlledRating";
 
 type Props = {
     selected: boolean
-    value?: TypeNumbers
-    setValue?: (value: TypeNumbers) => void
+    value?: RatingValueType
+    setValue?: (value: RatingValueType) => void
 }
 export const Star: FC<Props> = (props) => {
     const {selected, value, setValue} = props;

@@ -1,15 +1,20 @@
 import React, {FC} from 'react';
 
 type Props = {
-    title: string
-    setCollapsed?: () => void
+   title: string
+   collapsed: boolean
+   setCollapsed: (value: boolean) => void
 }
 export const AccordionTitle: FC<Props> = (props) => {
-    const {title, setCollapsed} = props;
+   const {title, collapsed, setCollapsed} = props;
 
-    return (
-        <h3 onClick={setCollapsed}>
-            -- {title} --
-        </h3>
-    );
+   const onClickHandler = () => {
+     setCollapsed(!collapsed)
+   }
+
+   return (
+      <h3 onClick={onClickHandler}>
+         -- {title} --
+      </h3>
+   );
 };
