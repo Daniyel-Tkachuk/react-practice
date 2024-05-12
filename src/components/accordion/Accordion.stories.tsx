@@ -1,27 +1,44 @@
-import type {Meta} from '@storybook/react';
-
+import type {Meta, StoryObj} from '@storybook/react';
 import {Accordion} from './Accordion';
-import {useState} from "react";
+import React from "react";
+import {fn} from "@storybook/test";
+
 
 const meta: Meta<typeof Accordion> = {
    component: Accordion,
-};
-
+   tags: ['autodocs'],
+   args: {
+      setCollapsed: fn()
+   },
+}
 
 export default meta;
 
-export const CollapsedAccordion = () => {
-   return <Accordion title="Collapsed Accordion" collapsed={true} setCollapsed={() => {}}/>
+type Story = StoryObj<typeof Accordion>;
+
+export const CollapsedAccordion: Story = {
+   args: {
+      title: "Collapsed Accordion",
+      collapsed: true,
+   }
+};
+export const OpenedAccordion: Story = {
+   args: {
+      title: "Opened Accordion",
+      collapsed: false,
+   },
+};
+const AccordionDemoHooks = () => {
+   const [collapsed, setCollapsed] = React.useState<boolean>(false);
+
+   const onChangeHandler = () => {
+      setCollapsed(!collapsed);
+   }
+
+   return <Accordion title="Accordion DEMO" collapsed={collapsed} setCollapsed={onChangeHandler}/>
 }
 
-export const OpenedAccordion = () => {
-   return <Accordion title="Opened Accordion" collapsed={false} setCollapsed={() => {}}/>
-}
-
-export const AccordionDemo = () => {
-   const [collapsed, setCollapsed] = useState<boolean>(false);
-
-   return <Accordion title="Opened Accordion" collapsed={collapsed} setCollapsed={() => setCollapsed(!collapsed)}/>
-}
-
+export const AccordionDemo: Story = {
+   render: () => <AccordionDemoHooks />,
+};
 

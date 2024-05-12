@@ -29,7 +29,7 @@ function App() {
          Controlled
          <OnOff includeValue={includedValue} setIncludeValue={setIncludedValue}/>
          Uncontrolled
-         <UncontrolledOnOff />
+         <UncontrolledOnOff/>
       </div>
    );
 }

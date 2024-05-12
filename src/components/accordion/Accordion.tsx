@@ -3,7 +3,6 @@ import {AccordionTitle} from "./AccordionTitle";
 import {AccordionBody} from "./AccordionBody";
 
 
-
 type Props = {
     title: string
     collapsed: boolean
@@ -11,6 +10,7 @@ type Props = {
 }
 export const Accordion: FC<Props> = (props) => {
     const {title, collapsed, setCollapsed} = props;
+
 
     return (
         <div>
