@@ -5,6 +5,7 @@ import {Accordion} from "./components/accordion/Accordion";
 import {UncontrolledOnOff} from "./components/onOff/UncontrolledOnOff";
 import {UnControlledAccordion} from "./components/accordion/UnControlledAccordion";
 import {OnOff} from "./components/onOff/OnOff";
+import {UncontrolledRating} from "./components/rating/UncontrolledRating";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
          Controlled
          <Rating value={value} setValue={setValue}/>
          Uncontrolled
+         <UncontrolledRating />
          <hr/>
          Controlled
          <Accordion title="Controlled" collapsed={collapsed} setCollapsed={() => setCollapsed(!collapsed)}/>

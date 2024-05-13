@@ -7,12 +7,10 @@ type Props = {
 export const AccordionTitle: FC<Props> = (props) => {
    const {title, setCollapsed} = props;
 
-   const onClickHandler = () => {
-      setCollapsed();
-   }
+
 
    return (
-      <h3 onClick={onClickHandler}>
+      <h3 onClick={setCollapsed}>
          -- {title} --
       </h3>
    );
