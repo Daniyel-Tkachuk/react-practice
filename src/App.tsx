@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
-import {Rating} from "./components/rating/Rating";
+import {Rating, RatingValueType} from "./components/rating/Rating";
 import {Accordion} from "./components/accordion/Accordion";
 import {UncontrolledOnOff} from "./components/onOff/UncontrolledOnOff";
 import {UnControlledAccordion} from "./components/accordion/UnControlledAccordion";
-import {RatingValueType, UncontrolledRating} from "./components/rating/UnControlledRating";
 import {OnOff} from "./components/onOff/OnOff";
 
 
@@ -19,7 +18,6 @@ function App() {
          Controlled
          <Rating value={value} setValue={setValue}/>
          Uncontrolled
-         <UncontrolledRating/>
          <hr/>
          Controlled
          <Accordion title="Controlled" collapsed={collapsed} setCollapsed={() => setCollapsed(!collapsed)}/>

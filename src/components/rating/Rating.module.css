@@ -1,0 +1,10 @@
+.star {
+    font-size: 40px;
+    color: #000;
+    cursor: pointer;
+    user-select: none;
+}
+
+.selected {
+    color: #ffaf00;
+}
