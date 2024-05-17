@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {Rating, RatingValueType} from "./components/rating/Rating";
-import {Accordion} from "./components/accordion/Accordion";
+import {Accordion, ItemType} from "./components/accordion/Accordion";
 import {UncontrolledOnOff} from "./components/onOff/UncontrolledOnOff";
 import {UnControlledAccordion} from "./components/accordion/UnControlledAccordion";
 import {OnOff} from "./components/onOff/OnOff";
@@ -13,6 +13,12 @@ function App() {
    const [collapsed, setCollapsed] = React.useState<boolean>(true);
    const [includedValue, setIncludedValue] = React.useState<boolean>(false);
 
+   const stateForAccordion: ItemType[] = [
+      {title: "Минск", value: ""},
+      {title: "Гродно", value: ""},
+      {title: "Витебск", value: ""},
+      {title: "Гомель", value: ""},
+   ]
 
    return (
       <div className="App">
@@ -22,7 +28,11 @@ function App() {
          <UncontrolledRating />
          <hr/>
          Controlled
-         <Accordion title="Controlled" collapsed={collapsed} setCollapsed={() => setCollapsed(!collapsed)}/>
+         <Accordion title="Controlled"
+                    items={stateForAccordion}
+                    onClick={value => {console.log(value)}}
+                    collapsed={collapsed}
+                    setCollapsed={() => setCollapsed(!collapsed)}/>
          Uncontrolled
          <UnControlledAccordion title="Uncontrolled"/>
          <hr/>
