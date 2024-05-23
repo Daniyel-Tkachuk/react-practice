@@ -18,7 +18,7 @@ export const UnControlledAccordion: FC<Props> = (props) => {
     return (
         <div>
             <AccordionTitle title={title} setCollapsed={setCollapsedHandler}/>
-            {!collapsed && <AccordionBody/>}
+            {!collapsed && <AccordionBody items={[{value: "1", title: "Minsk"}]} onClick={() => {}}/>}
         </div>
     );
 }

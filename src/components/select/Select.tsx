@@ -12,14 +12,16 @@ type Props = {
 }
 
 export const Select: FC<Props> = (props) => {
-   const {items} = props;
+   const {items, value} = props;
+
+   const selectedItem = items.find(item => item.value === value);
 
    return (
       <div>
-         <div>{}</div>
+         <h3>{selectedItem && selectedItem.title}</h3>
          {items.map(el => {
             return (
-               <div>{el.title}</div>
+               <div key={el.value}>{el.title}</div>
             )
          })}
       </div>
