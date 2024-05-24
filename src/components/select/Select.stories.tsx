@@ -30,12 +30,12 @@ export const WithValue = {
    render: function Render(args) {
       const [value, setValue] = useState("2");
 
-      function onChange(newValue: string) {
+      function onChangeHandler(newValue: string) {
          setValue(newValue);
          action('select-value')(newValue);
       }
 
-      return <Select {...args} onChange={onChange} value={value}/>
+      return <Select {...args} onChange={onChangeHandler} value={value}/>
    },
 } satisfies Story;
 
@@ -45,7 +45,12 @@ export const WithoutValue = {
      value: ""
    },
    render: (args) => {
+      const [value, setValue] = useState(null);
 
-      return <Select {...args} onChange={action("value-changed")}/>
+      const onChangeHandler = (newValue: any) => {
+         setValue(newValue);
+      }
+
+      return <Select {...args} onChange={onChangeHandler} value={value}/>
    }
 } satisfies Story;

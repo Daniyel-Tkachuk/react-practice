@@ -7,7 +7,7 @@ type ItemType = {
 }
 
 type Props = {
-   value?: string
+   value?: any
    onChange: (value: any) => void
    items: ItemType[]
 }
@@ -17,19 +17,26 @@ export const Select: FC<Props> = (props) => {
 
    const [active, setActive] = React.useState<boolean>(false);
 
+   const selectedItem = items.find(item => item.value === value);
+
    const toggleItems = () => {
       setActive(!active);
    }
 
-   const selectedItem = items.find(item => item.value === value);
+   const onClickHandler = (newValue: any) => {
+      onChange(newValue);
+      toggleItems();
+   };
 
    return (
       <div className={s.select}>
-         <span className={s.main} onClick={toggleItems}>{selectedItem && selectedItem.title}</span>
+         <span className={s.main} onClick={toggleItems}>
+            {selectedItem && selectedItem.title}
+         </span>
          {
             active &&
              <div className={s.items}>
-                {items.map(el => <div key={el.value} onClick={() => onChange(el.value)}>{el.title}</div>)}
+                {items.map(el => <div key={el.value} onClick={() => onClickHandler(el.value)}>{el.title}</div>)}
              </div>
          }
       </div>
