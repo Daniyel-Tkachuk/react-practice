@@ -21,10 +21,6 @@ export const Select: FC<Props> = (props) => {
       setActive(!active);
    }
 
-   const itemClicked = (value: any) => {
-      onChange(value);
-   }
-
    const selectedItem = items.find(item => item.value === value);
 
    return (
@@ -33,7 +29,7 @@ export const Select: FC<Props> = (props) => {
          {
             active &&
              <div className={s.items}>
-                {items.map(el => <div key={el.value} onClick={() => onChange(value)}>{el.title}</div>)}
+                {items.map(el => <div key={el.value} onClick={() => onChange(el.value)}>{el.title}</div>)}
              </div>
          }
       </div>

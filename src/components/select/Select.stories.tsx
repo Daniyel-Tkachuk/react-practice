@@ -12,8 +12,13 @@ const meta = {
    component: Select,
    args: {
       value: "2",
-      onChange: action('asd'),
-      items: []
+      items: [
+         {value: "1", title: "Minsk"},
+         {value: "2", title: "Гродно"},
+         {value: "3", title: "Витебск"},
+         {value: "4", title: "Могилев"},
+      ],
+      onChange: fn()
    }
 } satisfies Meta<typeof Select>;
 
@@ -23,20 +28,12 @@ type Story = StoryObj<typeof meta>;
 
 
 export const WithValue = {
-   args: {
-      items: [
-         {value: "1", title: "Minsk"},
-         {value: "2", title: "Гродно"},
-         {value: "3", title: "Витебск"},
-         {value: "4", title: "Могилев"},
-      ],
-   },
    render: function Render(args) {
-      const [{ value }, setValue] = useArgs();
+      const [value, setValue] = useState("2");
 
-      function onChange(newValue: any) {
-         setValue({ value: newValue });
-         action('select-value')(newValue)
+      function onChange(newValue: string) {
+         setValue(newValue);
+         action('select-value')(newValue);
       }
 
       return <Select {...args} onChange={onChange} value={value}/>
@@ -44,16 +41,12 @@ export const WithValue = {
 } satisfies Story;
 
 
+export const WithoutValue = {
+   args: {
+     value: ""
+   },
+   render: (args) => {
 
-
-
-
-
-
-export const WithoutValue = () => <Select onChange={action("Value changed")}
-                                          items={[
-                                             {value: "1", title: "Minsk"},
-                                             {value: "2", title: "Гродно"},
-                                             {value: "3", title: "Витебск"},
-                                             {value: "4", title: "Могилев"},
-                                          ]}/>
+      return <Select {...args} onChange={action("value-changed")}/>
+   }
+} satisfies Story;
