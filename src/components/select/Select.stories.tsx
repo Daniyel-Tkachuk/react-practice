@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {Select} from "./Select";
 import {action} from "@storybook/addon-actions";
 import {Meta, StoryObj} from "@storybook/react";
-import {useArgs} from '@storybook/preview-api';
 import {fn} from "@storybook/test";
 
 /*items={}*/
