@@ -4,7 +4,6 @@ import {action} from "@storybook/addon-actions";
 import {Meta, StoryObj} from "@storybook/react";
 import {fn} from "@storybook/test";
 
-/*items={}*/
 
 const meta = {
    tags: ['autodocs'],
@@ -49,6 +48,7 @@ export const WithoutValue = {
 
       const onChangeHandler = (newValue: any) => {
          setValue(newValue);
+         action('select-value')(newValue);
       }
 
       return <Select {...args} onChange={onChangeHandler} value={value}/>

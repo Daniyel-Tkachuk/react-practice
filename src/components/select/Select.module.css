@@ -5,6 +5,10 @@
     min-width: 40px;
 }*/
 
+.select {
+    outline: none;
+}
+
 .select span.main {
     position: relative;
     display: inline-block;
@@ -18,4 +22,9 @@
     position: absolute;
     padding: 5px;
     border: 1px solid #000;
+}
+
+.item.selected {
+    background-color: blue;
+    color: #fff;
 }
