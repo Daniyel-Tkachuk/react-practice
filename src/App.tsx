@@ -14,10 +14,10 @@ function App() {
    const [includedValue, setIncludedValue] = React.useState<boolean>(false);
 
    const stateForAccordion: ItemType[] = [
-      {title: "Минск", value: ""},
-      {title: "Гродно", value: ""},
-      {title: "Витебск", value: ""},
-      {title: "Гомель", value: ""},
+      {title: "Минск", value: "1"},
+      {title: "Гродно", value: "2"},
+      {title: "Витебск", value: "3"},
+      {title: "Гомель", value: "4"},
    ]
 
    return (
@@ -34,7 +34,7 @@ function App() {
                     collapsed={collapsed}
                     setCollapsed={() => setCollapsed(!collapsed)}/>
          Uncontrolled
-         <UnControlledAccordion title="Uncontrolled"/>
+         <UnControlledAccordion title="Uncontrolled" items={stateForAccordion}/>
          <hr/>
          Controlled
          <OnOff includeValue={includedValue} setIncludeValue={setIncludedValue}/>

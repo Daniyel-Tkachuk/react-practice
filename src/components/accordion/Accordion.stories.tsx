@@ -43,7 +43,7 @@ const AccordionDemoHooks = () => {
    }
 
    const onClickHandler = (value: any) => {
-      action(`user with id - ${value}`)
+      action(`user with id`)(value);
    }
 
    return <Accordion title="Accordion DEMO"
@@ -54,7 +54,7 @@ const AccordionDemoHooks = () => {
                      ]}
                      collapsed={collapsed}
                      setCollapsed={onChangeHandler}
-                     onClick={action('user id')}
+                     onClick={onClickHandler}
    />
 }
 

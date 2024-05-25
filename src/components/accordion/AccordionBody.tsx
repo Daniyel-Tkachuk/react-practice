@@ -3,11 +3,15 @@ import {ItemType} from "./Accordion";
 
 type Props = {
    items: ItemType[]
-   onClick: (value: any) => void
+   onClick?: (value: any) => void
 }
 
 export const AccordionBody: FC<Props> = (props) => {
    const {items, onClick} = props;
+
+   const onClickHandler = (value: string) => {
+      onClick && onClick(value)
+   }
 
 
     return (
@@ -15,7 +19,7 @@ export const AccordionBody: FC<Props> = (props) => {
            {
                items.map((el, i) => {
                   return (
-                     <li key={`${i}-${el}`} onClick={() => onClick(el.value)}>{el.title}</li>
+                     <li key={`${i}-${el}`} onClick={() => onClickHandler(el.value)}>{el.title}</li>
                   )
                })
            }
