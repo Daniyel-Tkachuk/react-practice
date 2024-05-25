@@ -2,6 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import {Rating, RatingValueType} from "./Rating";
 import {useState} from "react";
 import {fn} from "@storybook/test";
+import {action} from "@storybook/addon-actions";
 
 
 const meta = {
@@ -58,9 +59,14 @@ export const Rating_5: Story = {
 
 
 const RatingWithHooks = () => {
-   const [value, setValue] = useState<RatingValueType>(0)
+   const [value, setValue] = useState<RatingValueType>(1)
 
-   return <Rating value={value} setValue={setValue}/>
+   const onClickHandler = (value: RatingValueType) => {
+      setValue(value);
+      action("value changed")(value);
+   }
+
+   return <Rating value={value} setValue={onClickHandler}/>
 }
 
 export const RatingDemo = {
