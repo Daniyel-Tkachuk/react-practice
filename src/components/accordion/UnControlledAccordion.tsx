@@ -2,6 +2,7 @@ import React, {FC} from "react";
 import {AccordionTitle} from "./AccordionTitle";
 import {AccordionBody} from "./AccordionBody";
 import {ItemType} from "./Accordion";
+import {changeCollapsed, reducerAccordion} from "./reducer/rudecer";
 
 type Props = {
     title: string
@@ -10,16 +11,16 @@ type Props = {
 export const UnControlledAccordion: FC<Props> = (props) => {
     const {title, items} = props;
 
-    const [collapsed, setCollapsed] = React.useState<boolean>(false);
+    const [state, dispatch] = React.useReducer(reducerAccordion, {collapsed: true});
 
     const setCollapsedHandler = () => {
-        setCollapsed(!collapsed)
+        dispatch(changeCollapsed());
     }
 
     return (
         <div>
             <AccordionTitle title={title} setCollapsed={setCollapsedHandler}/>
-            {!collapsed && <AccordionBody items={items} onClick={() => {}}/>}
+            {!state.collapsed && <AccordionBody items={items} onClick={() => {}}/>}
         </div>
     );
 }

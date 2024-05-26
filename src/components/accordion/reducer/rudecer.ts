@@ -1,4 +1,4 @@
-type StateType = {
+export type StateType = {
    collapsed: boolean
 }
 
@@ -7,7 +7,7 @@ export const reducerAccordion = (state: StateType, action: ActionsType): StateTy
       case "CHANGE-COLLAPSED": {
          return {
             ...state,
-            collapsed: !action.payload.collapsed
+            collapsed: !state.collapsed
          }
       } default: {
          return state;
@@ -17,13 +17,10 @@ export const reducerAccordion = (state: StateType, action: ActionsType): StateTy
 
 type ChangeCollapsedType = ReturnType<typeof changeCollapsed>;
 
-export const changeCollapsed = (collapsed: boolean) => {
+export const changeCollapsed = () => {
    return {
       type: "CHANGE-COLLAPSED",
-      payload: {
-         collapsed
-      }
    } as const;
 };
 
-type ActionsType = ChangeCollapsedType;
+export type ActionsType = ChangeCollapsedType;
