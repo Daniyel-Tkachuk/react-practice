@@ -7,23 +7,27 @@ export default {
 
 export const Example1 = () => {
    const [counter, setCounter] = useState(0);
-   const [users, setUsers] = useState(["Daniyel", "Vika", "Zakhar"]);
+   const [users, setUsers] = useState(["Даниель", "Виктория", "Захар"]);
 
+   const addUser = () => {
+      setUsers([...users, "Алексей " + new Date().getTime()]);
+   }
 
    return (
       <>
          <button onClick={() => setCounter(counter + 1)}>+</button>
-         <NewMessagesCounter count={counter}/>
+         <button onClick={addUser}>add user</button>
+         <Counter count={counter}/>
          <Users users={users}/>
       </>
    )
 }
 
 
-const NewMessagesCounter = (props: {count: number}) => {
+const Counter = memo((props: {count: number}) => {
    console.log("counter")
    return <div>{props.count}</div>
-}
+})
 
 type UsersType = {
    users: string[]
