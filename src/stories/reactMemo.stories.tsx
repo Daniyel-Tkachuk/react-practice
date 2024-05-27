@@ -1,8 +1,9 @@
-import {useState} from "react";
+import {memo, useState} from "react";
 
 export default {
    title: "Memo"
 }
+
 
 export const Example1 = () => {
    const [counter, setCounter] = useState(0);
@@ -13,22 +14,23 @@ export const Example1 = () => {
       <>
          <button onClick={() => setCounter(counter + 1)}>+</button>
          <NewMessagesCounter count={counter}/>
-         <User users={users}/>
+         <Users users={users}/>
       </>
    )
 }
 
 
 const NewMessagesCounter = (props: {count: number}) => {
-
+   console.log("counter")
    return <div>{props.count}</div>
 }
 
 type UsersType = {
    users: string[]
 }
-const User = (props: UsersType) => {
-   console.log("users")
+const Users = memo((props: UsersType) => {
+   console.log("users");
+
    return (
       <div>
          {props.users.map((u, i) => {
@@ -38,4 +40,6 @@ const User = (props: UsersType) => {
          })}
       </div>
    )
-}
+});
+
+
