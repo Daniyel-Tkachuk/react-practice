@@ -73,11 +73,16 @@ export const HelpsForReactMemo = () => {
 
    const newUsers = useMemo(() => {
       return users.filter(u => u.toLowerCase().includes("а"));
-   }, [users])
+   }, [users]);
+
+   const addUser = () => {
+      setUsers([...users, "Андрей " + new Date().getTime()]);
+   }
 
    return (
       <>
          <button onClick={() => setCounter(counter + 1)}>+</button>
+         <button onClick={addUser}>add user</button>
          counter: {counter}
          <Users users={newUsers}/>
       </>
