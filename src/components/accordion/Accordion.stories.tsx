@@ -40,6 +40,7 @@ const AccordionDemoHooks = () => {
 
    const onChangeHandler = () => {
       setCollapsed(!collapsed);
+      action("collapsed: ")(!collapsed)
    }
 
    const onClickHandler = (value: any) => {
