@@ -47,7 +47,6 @@ function App() {
          Select
          <Select onChange={setSelectValue} items={state} value={selectValue}/>
          <hr/>
-         <SimpleExample_2/>
       </div>
    );
 }

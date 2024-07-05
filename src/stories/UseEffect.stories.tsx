@@ -47,10 +47,10 @@ export const SimpleExample_2 = () => {
 
    useEffect(() => {
 
-      setInterval(() => {
+      /*setInterval(() => {
          console.log("tick " + counter)
          setCounter((state) => state + 1);
-      }, 1000)
+      }, 1000)*/
 
    }, []);
 
@@ -66,4 +66,37 @@ export const SimpleExample_2 = () => {
          </div>
       </div>
    )
+}
+
+export const ClockDemo = () => {
+
+   const [date, setDate] = useState(new Date());
+
+   const hours = date.getHours();
+   const minutes = date.getMinutes();
+   const seconds = date.getSeconds();
+
+   useEffect(() => {
+      const timeId = setInterval(() => {
+         setDate(new Date());
+      }, 1000);
+
+      return () => {
+         clearInterval(timeId);
+      }
+   }, []);
+
+   const formatTime = (number: number) => {
+      return number.toString().padStart(2, "0");
+      // return number < 10 ? `0${number}` : number;
+   }
+
+   return (
+      <div>
+         <span>{formatTime(hours)}:</span>
+         <span>{formatTime(minutes)}:</span>
+         <span>{formatTime(seconds)}</span>
+      </div>
+   )
+
 }
