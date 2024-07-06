@@ -8,6 +8,7 @@ import {OnOff} from "./components/onOff/OnOff";
 import {UncontrolledRating} from "./components/rating/UncontrolledRating";
 import {Select} from "./components/select/Select";
 import {SimpleExample_2} from "./stories/UseEffect.stories";
+import {Clock} from "./components/clock/Clock";
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
          Select
          <Select onChange={setSelectValue} items={state} value={selectValue}/>
          <hr/>
+         <Clock/>
       </div>
    );
 }
