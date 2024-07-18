@@ -98,5 +98,28 @@ export const ClockDemo = () => {
          <span>{formatTime(seconds)}</span>
       </div>
    )
+}
 
+export const ResetUseEffectExample = () => {
+   const [counter, setCounter] = useState<number>(1);
+
+   console.log("Component rendered");
+
+   useEffect(() => {
+      console.log("Effect occurred");
+
+      return () => {
+         console.log("Reset effect");
+      }
+   }, []);
+
+   const incCounter = () => {
+      setCounter(counter + 1);
+   }
+
+   return (
+      <>
+         Hello, counter: {counter} <button onClick={incCounter}>+</button>
+      </>
+   )
 }
