@@ -17,7 +17,7 @@ export const Clock: FC<ClockProps> = (props) => {
       }
    }, []);
 
-   const hh = date.getHours() * 30 + date.getMinutes() / 12;
+   const hh = date.getHours() * 30 + date.getMinutes() * 0.5;
    const mm = date.getMinutes() * 6;
    const ss = date.getSeconds() * 6;
 
