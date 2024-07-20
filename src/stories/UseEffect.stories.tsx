@@ -122,4 +122,29 @@ export const ResetUseEffectExample = () => {
          Hello, counter: {counter} <button onClick={incCounter}>+</button>
       </>
    )
+};
+
+export const KeysTrackExample = () => {
+   const [text, setText] = useState<string>("");
+
+   console.log("Component rendered - " + text);
+
+   useEffect(() => {
+      const handler = (e: KeyboardEvent) => {
+         console.log(e.key);
+         setText(text + e.key);
+      }
+
+      window.addEventListener("keypress", handler)
+      return () => {
+         window.removeEventListener("keypress", handler)
+      }
+   }, [text]);
+
+   return (
+      <>
+         Typed text: {text}
+      </>
+   )
 }
+
